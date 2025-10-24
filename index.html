@@ -1,0 +1,457 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kajal Thakur - Portfolio</title>
+  <!-- Tailwind CSS CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for the "Inter" font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Three.js for 3D portal and photo animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Landing Page Portal Animation -->
+  <div id="portal-landing" class="flex flex-col items-center justify-center">
+    <canvas id="portal-canvas"></canvas>
+    <div class="portal-content">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-yellow-400 mb-4 animate-pulse">Welcome to my Portfolio
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-600 font-light tracking-wide mb-8">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Modal for thank you message -->
+  <div id="thankYouModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close-button">&times;</span>
+      <p class="text-xl font-semibold text-yellow-400">Thank you!</p>
+      <p class="mt-4">Thank you for visiting my portfolio. I will contact you soon.</p>
+    </div>
+  </div>
+
+  <!-- Main Portfolio Content -->
+  <div id="main-portfolio" class="hidden">
+    <!-- Navigation Bar -->
+    <nav id="navbar"
+      class="fixed top-10 left-0 w-full z-40 bg-transparent backdrop-blur transition-all duration-300 min-h-[64px]">
+      <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-6">
+        <!-- Left: Logo / Name -->
+        <div class="flex items-center gap-4 flex-shrink-0">
+          <span class="text-yellow-400 font-bold text-xl">KT</span>
+          <span class="text-lg font-semibold text-gray-800">Kajal Thakur</span>
+        </div>
+
+        <!-- Right: Links -->
+        <div class="hidden md:flex items-center gap-8 flex-nowrap whitespace-nowrap">
+          <a href="#about-me" class="text-sm hover:text-yellow-400 transition-colors duration-200">About Me</a>
+          <a href="#education" class="text-sm hover:text-yellow-400 transition-colors duration-200">Education</a>
+          <a href="#experience" class="text-sm hover:text-yellow-400 transition-colors duration-200">Experience</a>
+          <a href="#projects" class="text-sm hover:text-yellow-400 transition-colors duration-200">Projects</a>
+          <a href="#skills" class="text-sm hover:text-yellow-400 transition-colors duration-200">Skills</a>
+          <a href="#languages" class="text-sm hover:text-yellow-400 transition-colors duration-200">Languages &
+            Interests</a>
+          <a href="#certifications"
+            class="text-sm hover:text-yellow-400 transition-colors duration-200">Certifications</a>
+          <a href="#contact" class="text-sm hover:text-yellow-400 transition-colors duration-200">Contact</a>
+        </div>
+
+        <!-- Mobile: simple hamburger (optional) -->
+        <div class="md:hidden">
+          <!-- add your mobile menu button here -->
+          <button aria-label="Open menu" class="p-2">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Add this so page content doesn't go under the fixed navbar -->
+    <div class="pt-[64px]"></div>
+
+    <main class="section-container space-y-24">
+
+      <!-- About Me Section -->
+      <!-- The "About Me" heading is now combined with the intro line for better flow -->
+      <section id="about-me" class="fade-in-section pt-32 md:pt-48">
+        <!-- Three.js Animated S-type background -->
+        <canvas id="animated-background-canvas"></canvas>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
+          <div class="space-y-6">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-800">Hi, I'm Kajal Thakur
+              <span class="block text-xl sm:text-2xl font-semibold text-yellow-400 mt-2">Passionate Front-End
+                Developer</span>
+            </h1>
+            <p class="text-gray-600 text-lg">I love building clean, responsive, and interactive web applications. I
+              specialize in HTML, CSS, JavaScript, and UI/UX design, and I enjoy creating digital experiences that are
+              both beautiful and user-friendly. My goal is to grow as a full-stack developer and contribute to
+              innovative projects that make people’s lives easier.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://drive.google.com/file/d/15q9lbsByKW-ej_4L4y7tJ8rgni9IhTjO/view?usp=sharing"
+                class="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-full transition-colors duration-300">Download
+                CV</a>
+              <!-- IMPORTANT: Replace the placeholder links below with your actual GitHub and LinkedIn URLs -->
+              <a href="https://github.com/kajalthakur27" target="_blank"
+                class="px-6 py-2 border border-gray-400 text-gray-600 font-semibold rounded-full hover:bg-gray-200 transition-colors duration-300">GitHub</a>
+              <a href="https://www.linkedin.com/in/kajal-thakur-546156314/" target="_blank"
+                class="px-6 py-2 border border-gray-400 text-gray-600 font-semibold rounded-full hover:bg-gray-200 transition-colors duration-300">LinkedIn</a>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-8 text-center">
+              <div>
+                <h3 class="text-3xl font-bold text-yellow-400">2+</h3>
+                <p class="text-sm text-gray-600">Years of Experience</p>
+              </div>
+              <div>
+                <h3 class="text-3xl font-bold text-yellow-400">10+</h3>
+                <p class="text-sm text-gray-600">Projects Completed</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center md:justify-end">
+            <div class="photo-container">
+              <!-- Canvas for the 3D animation around the photo -->
+              <canvas id="photo-canvas"></canvas>
+              <!-- Your profile photo -->
+              <img src="Screenshot from 2025-09-14 19-05-05.png" alt="Kajal Thakur" class="bouncing-image">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section (Mind Map Style) -->
+      <section id="education" class="fade-in-section">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-12 text-center">Education</h2>
+
+        <div class="relative flex justify-center items-start min-h-[380px]">
+          <!-- Vertical line -->
+          <div class="absolute left-1/2 top-10 bottom-0 w-1 bg-yellow-300 z-0"></div>
+
+          <!-- 12th Node -->
+          <div class="absolute left-[10%] top-20 flex items-center z-10">
+            <div class="flex flex-col items-center">
+              <img src="data:image/jpeg;base64,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" alt="12th"
+                class="w-10 h-10 rounded-full bg-gray-200 p-1 mb-2 border-2 border-yellow-400">
+              <div class="bg-white rounded-lg shadow-lg px-4 py-2 border-l-4 border-yellow-400 min-w-[180px]">
+                <div class="font-semibold text-gray-800">12th Complete</div>
+                <div class="text-xs text-gray-600">Project Girls High School Thakurganj</div>
+              </div>
+            </div>
+            <div class="w-12 h-1 bg-yellow-300 ml-2"></div>
+          </div>
+
+          <!-- BA Node -->
+          <div class="absolute left-[20%] top-[65%] flex items-center z-10">
+            <div class="flex flex-col items-center">
+              <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/Purnea_University_logo.png" alt="BA"
+                class="w-10 h-10 rounded-full bg-gray-200 p-1 mb-2 border-2 border-yellow-400">
+              <div class="bg-white rounded-lg shadow-lg px-4 py-2 border-l-4 border-yellow-400 min-w-[180px]">
+                <div class="font-semibold text-gray-800">B.A. Sociology</div>
+                <div class="text-xs text-gray-600">Purena University (2023–2027)</div>
+                <div class="text-xs text-yellow-500">Current Education</div>
+              </div>
+            </div>
+            <div class="w-12 h-1 bg-yellow-300 ml-2"></div>
+          </div>
+
+          <!-- Diploma Node -->
+          <div class="absolute right-[10%] top-40 flex items-center z-10">
+            <div class="w-12 h-1 bg-yellow-300 mr-2"></div>
+            <div class="flex flex-col items-center">
+              <img src="https://gobarefoot.co//gbf-static/organization/logo/60593.jpg" alt="Diploma"
+                class="w-10 h-10 rounded-full bg-gray-200 p-1 mb-2 border-2 border-yellow-400">
+              <div class="bg-white rounded-lg shadow-lg px-4 py-2 border-l-4 border-yellow-400 min-w-[180px]">
+                <div class="font-semibold text-gray-800">Navgurukul</div>
+                <div class="text-xs text-gray-600">SSOP (School of Programming)(2024–2026)</div>
+                <div class="text-xs text-yellow-500">Present</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formal Education List -->
+        <div class="mt-8 text-center">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">Formal Education</h3>
+          <ul class="list-disc list-inside space-y-4">
+            <li>
+              <span class="font-semibold text-gray-800">Bachelor of Arts in Sociology (2023–2027)</span>
+              <span class="text-sm text-gray-600 ml-2">— Current Education</span>
+            </li>
+            <li>
+              <span class="font-semibold text-gray-800">Diploma in Software Programming</span>
+              <span class="text-sm text-gray-600 ml-2">— Currently enrolled in Navgurukul + Project Potential diploma
+                course.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- Experience Section -->
+      <section id="experience" class="pt-24">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">Experience</h2>
+        <div class="grid grid-cols-1 gap-6">
+          <div class="card experience-card fade-in-section">
+            <h3 class="text-xl font-semibold text-gray-800">🌍 Social Sector Experience</h3>
+            <p class="mt-2 text-gray-600"><strong>Project Potential (3 years)</strong> — Worked on the RIYL Program and
+              was part of Yuva Mela, where I collaborated with NGOs and companies.</p>
+            <p class="mt-2 text-gray-600"><strong>Panchayat Coordination Role</strong> — Coordinated with local
+              governance bodies for youth engagement and awareness.</p>
+            <p class="mt-2 text-gray-600"><strong>Health Access</strong> — Supported community members in accessing
+              government schemes like the Ayushman Card.</p>
+          </div>
+          <div class="card experience-card fade-in-section">
+            <h3 class="text-xl font-semibold text-gray-800">👩‍🍳 Leadership & Council Experience (Navgurukul)</h3>
+            <p class="mt-2 text-gray-600"><strong>First Kitchen Incharge (Council Member)</strong> — Managed daily
+              kitchen operations and handled logistics for 70+ students, ensuring smooth functioning.</p>
+            <p class="mt-2 text-gray-600"><strong>Placement Specialist (Current Role)</strong> — Serving as the first
+              Placement Specialist at Navgurukul, responsible for student placement processes and coordination between
+              teams and learners.</p>
+          </div>
+          <div class="card experience-card fade-in-section">
+            <h3 class="text-xl font-semibold text-gray-800">💻 Tech Experience</h3>
+            <p class="mt-2 text-gray-600">Built and contributed to projects such as: Bihar Culture Website, School of
+              Programming (SoP) Project, FOSS Project.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="fade-in-section">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">Projects</h2>
+        <p class="text-gray-600 mb-8">Click to see the live version of my projects.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project Card: Autism Support App -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Autism Support App</h3>
+            <p class="text-sm text-gray-600 mb-4">A comprehensive support application built with React, Express, and TypeScript for autism awareness and assistance.</p>
+            <a href="https://autism-zux5.vercel.app/" target="_blank"
+              class="text-yellow-500 hover:underline">View Live</a>
+          </div>
+          <!-- Project Card: Kaleidoscopic Smakager -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Sop and Bihar culture</h3>
+            <p class="text-sm text-gray-600 mb-4">This is my biggest project combining SOP and Bihar Culture; full-stack work with a clean, engaging UI and accessi-
+bility features.</p>
+            <a href="https://kaleidoscopic-smakager-4a9960.netlify.app/" target="_blank"
+              class="text-yellow-500 hover:underline">View Live</a>
+          </div>
+          <!-- Project Card: Pinch of Yum -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Pinch of Yum</h3>
+            <p class="text-sm text-gray-600 mb-4">A simple blog website featuring recipes and food content.</p>
+            <a href="https://subtle-dodol-a61f51.netlify.app/" target="_blank"
+              class="text-yellow-500 hover:underline">View Live</a>
+          </div>
+          <!-- Project Card: My Campus Outing -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">My Campus Outing</h3>
+            <p class="text-sm text-gray-600 mb-4">A website detailing every outing and event on campus.</p>
+            <a href="https://startling-sprite-56812c.netlify.app/" target="_blank"
+              class="text-yellow-500 hover:underline">View Live</a>
+          </div>
+          <!-- Project Card: Simple Dashboard -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Simple Dashboard</h3>
+            <p class="text-sm text-gray-600 mb-4">A clean and simple dashboard made with only HTML and CSS.</p>
+            <a href="https://kajal12.netlify.app/" target="_blank" class="text-yellow-500 hover:underline">View Live</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="fade-in-section">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Technical Skills -->
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Technical Skills</h3>
+            <div class="space-y-2 text-gray-600">
+              <div class="skill-item"><i class="fab fa-html5"></i> HTML5 & CSS3</div>
+              <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+              <div class="skill-item"><i class="fab fa-react"></i> React.js</div>
+          <div class="skill-item"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+              <div class="skill-item"><i class="fas fa-code"></i> DOM Manipulation</div>
+              <div class="skill-item"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+            </div>
+          </div>
+          <!-- Designing Tools -->
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Designing Tools</h3>
+            <div class="space-y-2 text-gray-600">
+              <div class="skill-item"><i class="fas fa-pencil-ruler"></i> Figma</div>
+              <div class="skill-item"><i class="fas fa-paint-brush"></i> Canva</div>
+              <div class="skill-item"><i class="fas fa-lightbulb"></i> UI/UX Principles</div>
+            </div>
+          </div>
+          <!-- OS & Tools -->
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">OS & Tools</h3>
+            <div class="space-y-2 text-gray-600">
+              <div class="skill-item"><i class="fab fa-windows"></i> Windows</div>
+              <div class="skill-item"><i class="fab fa-linux"></i> Linux</div>
+              <div class="skill-item"><i class="fas fa-terminal"></i> VS Code</div>
+            </div>
+          </div>
+          <!-- Soft Skills -->
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-4 text-gray-800">Soft Skills</h3>
+            <div class="space-y-2 text-gray-600">
+              <div class="skill-item"><i class="fas fa-comments"></i> Communication</div>
+              <div class="skill-item"><i class="fas fa-users"></i> Teamwork</div>
+              <div class="skill-item"><i class="fas fa-brain"></i> Problem Solving</div>
+              <div class="skill-item"><i class="fas fa-clock"></i> Time Management</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages & Interests Section -->
+      <!-- The grid has been updated to show two columns on all screen sizes -->
+      <section id="languages" class="fade-in-section">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">Languages & Interests</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Languages</h3>
+            <ul class="list-disc list-inside space-y-1 text-gray-600">
+              <li>Hindi</li>
+              <li>English</li>
+              <li>Maithili</li>
+              <li>Bhojpuri</li>
+              <li>Bengali</li>
+            </ul>
+          </div>
+          <div class="card skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Interests</h3>
+            <ul class="list-disc list-inside space-y-1 text-gray-600">
+              <li>Travel</li>
+              <li>Outing</li>
+              <li>Music Lover</li>
+              <li>Dancing</li>
+              <li>Bookworm</li>
+              <li>Painting</li>
+              <li>Poetry</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+     <!-- Certifications Section -->
+      <section id="certifications" class="fade-in-section">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-6">Certifications</h2>
+        <p class="text-gray-600 mb-8">Click to view my certifications.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Certification Card: GitHub Fundamentals (Coursera) -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">GitHub Fundamentals</h3>
+            <p class="text-sm text-gray-600 mb-4">A foundational course from Coursera on using Git and GitHub.</p>
+            <a href="https://coursera.org/share/31b511fa2284144c1f1d6dda463a0de9" target="_blank"
+              class="text-yellow-500 hover:underline">View Certificate</a>
+          </div>
+          <!-- Certification Card: Version Control (Coursera) -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Version Control</h3>
+            <p class="text-sm text-gray-600 mb-4">Certification from Coursera on understanding and applying version control systems.</p>
+            <a href="https://coursera.org/share/b05c8857e29c5ae25f9d0f69b5294667" target="_blank"
+              class="text-yellow-500 hover:underline">View Certificate</a>
+          </div>
+          <!-- Certification Card: Prompt Engineering for ChatGPT (Coursera) -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Prompt Engineering for ChatGPT</h3>
+            <p class="text-sm text-gray-600 mb-4">A Coursera certificate focused on prompt engineering skills.</p>
+            <a href="https://coursera.org/share/03e181c532c2132fb405602583c92245" target="_blank"
+              class="text-yellow-500 hover:underline">View Certificate</a>
+          </div>
+          <!-- Certification Card: Anudip Foundation (Drive) -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Anudip Foundation</h3>
+            <p class="text-sm text-gray-600 mb-4">Certification on social welfare functions.</p>
+            <a href="https://drive.google.com/file/d/1P0yhWSwBA00_xh1KTUAghszk8HEJzy6v/view?usp=sharing" target="_blank"
+              class="text-yellow-500 hover:underline">View Certificate</a>
+          </div>
+          <!-- Certification Card: Financial Literacy Program (Drive) -->
+          <div class="card text-center skills-card">
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">Financial Literacy Program</h3>
+            <p class="text-sm text-gray-600 mb-4">Certificate from CSRL & Kriya.</p>
+            <a href="https://drive.google.com/file/d/15ChnyTLoljPtLLvk2ddI8SqNyRObNrrD/view?usp=sharing" target="_blank"
+              class="text-yellow-500 hover:underline">View Certificate</a>
+          </div>
+        </div>
+      </section>
+ <!-- Contact Section -->
+      <section id="contact" class="fade-in-section pt-24">
+        <div class="contact-card-new mx-auto max-w-4xl">
+          <div class="contact-card-header">
+            <h2 class="text-lg font-bold text-black uppercase">LOGO</h2>
+          </div>
+          <div class="contact-card-content">
+            <div class="contact-form-section">
+              <h2 class="text-4xl font-bold text-black mb-8">CONTACT</h2>
+              <form id="contact-form" action="https://formsubmit.co/kajalthakur24@navgurukul.org" method="POST"
+                class="space-y-6">
+                <!-- Spam captcha off -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="box">
+                <input type="text" name="Name" placeholder="Name"
+                  class="w-full border-b-2 border-gray-300 focus:border-yellow-400 outline-none p-2 transition-colors duration-300"
+                  required>
+                <input type="email" name="Email" placeholder="Email"
+                  class="w-full border-b-2 border-gray-300 focus:border-yellow-400 outline-none p-2 transition-colors duration-300"
+                  required>
+                <input type="tel" name="Phone" placeholder="Phone (Optional)"
+                  class="w-full border-b-2 border-gray-300 focus:border-yellow-400 outline-none p-2 transition-colors duration-300">
+                <textarea name="Message" placeholder="Message" rows="5"
+                  class="w-full border-b-2 border-gray-300 focus:border-yellow-400 outline-none p-2 transition-colors duration-300"
+                  required></textarea>
+                <button type="submit"
+                  class="w-full md:w-auto px-10 py-3 bg-yellow-400 text-black font-bold uppercase tracking-wider rounded-md hover:bg-yellow-500 transition-colors duration-300">SEND</button>
+              </form>
+            </div>
+            <div class="contact-info-section">
+              <div class="contact-info-content">
+                <h3 class="text-lg font-bold uppercase mb-8">INFO</h3>
+                <div class="contact-info-details">
+                  <p><i class="fas fa-envelope"></i> kajalthakur24@navgurukul.org</p>
+                 <p><i class="fas fa-map-marker-alt"></i>Thakurganj Block Road 855116</p>
+                  <p><i class="fas fa-clock"></i> 09:00 - 18:00</p>
+                </div>
+                <div class="contact-social-icons mt-8">
+                  <a href="https://www.facebook.com/share/1HfKKK1DbB/" target="_blank" class="hover:text-yellow-400"><i
+                      class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/kt176081?igsh=MXBhcHZwdmZsYW54aA==" target="_blank"
+                    class="hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="hover:text-yellow-400"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="section-container text-center py-8 text-gray-500 text-sm">
+      <p>&copy; 2024 Kajal Thakur. All Rights Reserved.</p>
+      <div class="mt-2 space-x-4">
+        <!-- IMPORTANT: Remember to replace "YOUR_LINKEDIN_URL" and "YOUR_GITHUB_USERNAME" with your actual links -->
+        <a href="YOUR_LINKEDIN_URL" target="_blank" class="hover:text-gray-800">LinkedIn</a>
+        <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" class="hover:text-gray-800">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
